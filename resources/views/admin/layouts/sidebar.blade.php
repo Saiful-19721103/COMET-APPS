@@ -24,11 +24,11 @@
                         
                             <!--Portfolio-->
                             <li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Admin Users</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-document"></i> <span> Portfolio</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="invoice-report.html">Useres</a></li>
-                                    <li><a href="invoice-report.html">Role</a></li>
-                                    <li><a href="invoice-report.html">Permission</a></li>
+									<li><a href="invoice-report.html">---</a></li>
+                                    <li><a href="invoice-report.html">----</a></li>
+                                    <li><a href="invoice-report.html">----</a></li>
 								</ul>
 							</li>
                             <!--Portfolio-->
