@@ -20,6 +20,12 @@ class AdminAuthController extends Controller
      */
     public function login(Request $request)
     {
-        return $request->all();
+        //return $request->all();
+
+        //Validation
+        $this->validate($request, [
+            'auth'        => 'required',
+            'pasword'     => 'required'
+        ]);
     }
 }

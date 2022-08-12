@@ -38,6 +38,8 @@
 							<div class="login-right-wrap">
 								<h1>Login</h1>
 								<p class="account-subtitle">Access to our dashboard</p>
+
+								@include('validate')
 								
 								<!-- Form -->
 								<form action="{{route('admin.login')}}" method="POST">
