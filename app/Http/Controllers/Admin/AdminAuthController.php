@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAuthController extends Controller
 {
@@ -25,7 +26,14 @@ class AdminAuthController extends Controller
         //Validation
         $this->validate($request, [
             'auth'        => 'required',
-            'pasword'     => 'required'
+            'password'    => 'required',
         ]);
+
+        // Try  to Login
+        if(Auth::guard('admin')->attempt(['email' => $request->auth , 'password' => $request->password]) ){
+            return redirect()->route('admin.dashboard');
+        }else{
+            return redirect()->route('admin.login.page')->with('warning', 'Email or password not match');
+        }
     }
 }

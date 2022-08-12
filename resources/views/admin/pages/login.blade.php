@@ -46,14 +46,14 @@
 									@csrf
 
 									<div class="form-group">
-										<input name="auth" class="form-control" type="text" placeholder="Email">
+										<input name="auth" class="form-control" type="text" placeholder="Email/ cell / Username">
 									</div>
 									<div class="form-group">
 										<input name="password" class="form-control" type="text" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<button class="btn btn-primary btn-block" type="submit">Login</button>
-									</div>
+									</div> 
 								</form>
 								<!-- /Form -->
 								

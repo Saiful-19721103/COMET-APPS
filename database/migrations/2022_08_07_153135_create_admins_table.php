@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('location')->nullable();
-            $table->string('dob')->nullable(); //Datae of birth
+            $table->string('dob')->nullable(); 
             $table->string('bio')->nullable();
             $table->string('photo')->default('avatar.png');
             $table->string('access_token')->nullable();

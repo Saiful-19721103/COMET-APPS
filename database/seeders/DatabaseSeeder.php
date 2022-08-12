@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         //Super admin Create
         Admin::create([
             'name'      => 'Provider',
-            'email'     => 'provider@gmail.com',
+            'email'     => 'provider@yahoo.com',
             'cell'      =>  '01819210083',
             'username'  =>  'provider',
             'password'  =>  Hash::make('asdfg'),
