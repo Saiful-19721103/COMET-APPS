@@ -14,4 +14,12 @@ class AdminAuthController extends Controller
     {
         return view('admin.pages.login');
     }
+
+    /**
+     * admin Login system [by Post]
+     */
+    public function login(Request $request)
+    {
+        return $request->all();
+    }
 }

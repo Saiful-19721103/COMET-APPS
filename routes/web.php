@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminPageController;
 
 // Admin Auth Route [Login Page]
 Route::get('/admin-login', [AdminAuthController::class, 'showLoginPage'])->name('admin.login.page');
+Route::post('/admin-login', [AdminAuthController::class, 'login'])->name('admin.login');
 
 // Admin Page Route [Dashboard Page]
 Route::get('/dashboard', [AdminPageController::class, 'showDashboard'])->name('admin.dashboard');
