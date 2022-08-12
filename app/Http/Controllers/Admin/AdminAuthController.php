@@ -30,10 +30,13 @@ class AdminAuthController extends Controller
         ]);
 
         // Try  to Login
-        if(Auth::guard('admin')->attempt(['email' => $request->auth , 'password' => $request->password]) ){
+        if(Auth::guard('admin')->attempt(['email' => $request->auth , 'password' => $request->password]) ||
+        Auth::guard('admin')->attempt(['cell' => $request->auth , 'password' => $request->password]) || 
+        Auth::guard('admin')->attempt(['username' => $request->auth , 'password' => $request->password]) )
+        {
             return redirect()->route('admin.dashboard');
         }else{
-            return redirect()->route('admin.login.page')->with('warning', 'Email or password not match');
+            return redirect()->route('admin.login.page')->with ('warning', 'Email or password not match');
         }
     }
 }
