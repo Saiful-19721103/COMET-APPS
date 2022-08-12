@@ -4,6 +4,7 @@ namespace App\Http\Middleware\Admin;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAuthRedirectMiddleware
 {
@@ -16,6 +17,9 @@ class AdminAuthRedirectMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if( Auth::guard('admin')->check() ){
+            return redirect()->route('admin.dashboard');
+        }
         return $next($request);
     }
 }
