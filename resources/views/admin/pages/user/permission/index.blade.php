@@ -21,17 +21,23 @@
 												</tr>
 											</thead>
 											<tbody>
+                                                @forelse ($all_permission as $per)
 												<tr>
 													<td>1</td>
-													<td>Slider</td>
-                                                    <td>Slider</td>
-                                                    <td>10 min ago</td>
+													<td>{{ $per->name }}</td>
+                                                    <td>{{ $per->slug }}</td>
+                                                    <td>{{ $per->created_at }}</td>
 													<td>
                                                         <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
                                                         <a class="btn btn-sm btn-warning" href="#"><i class="fa fa-edit"></i></a>
                                                         <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>
                                                     </td>
 												</tr>
+                                                @empty
+                                                    <tr>
+                                                        <td colspan="5" class="text-center text-danger">No Records Found</td>
+                                                    </tr>
+                                                @endforelse
 											</tbody>
 										</table>
 									</div>
