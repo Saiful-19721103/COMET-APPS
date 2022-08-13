@@ -26,7 +26,7 @@
 													<td>{{$loop-> index + 1 }}</td>
 													<td>{{ $per->name }}</td>
                                                     <td>{{ $per->slug }}</td>
-                                                    <td>{{ $per->created_at }}</td>
+                                                    <td>{{ $per->created_at->diffForHumans }}</td>
 													<td>
                                                         <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
                                                         <a class="btn btn-sm btn-warning" href="#"><i class="fa fa-edit"></i></a>
@@ -51,8 +51,11 @@
 							<div class="card">
 								<div class="card-header">
 									<h4 class="card-title">Add New Permission</h4>
-								</div>
+                                </div>
 								<div class="card-body">
+
+                                @include('validate')
+
                                     <!--Form-->
 									<form action="{{route('permission.store')}}" method="POST">
                                         @csrf

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Permission;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PermissionController extends Controller
 {
@@ -38,7 +39,18 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //For Check
-        return $request -> all();
+        //return $request -> all();
+
+        //Request Validate
+        $this->validate($request, ['name' => 'required|unique:permissions']);
+
+        //Data store
+        Permission::create([
+            'name'      => $request->name,
+            'slug'      => Str::slug ($request->name)
+        ]);
+
+        return back()->with('success', 'Permission Added Success');
     }
 
     /**
