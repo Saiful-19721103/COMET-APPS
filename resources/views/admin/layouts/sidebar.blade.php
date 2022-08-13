@@ -59,7 +59,7 @@
 								<ul style="display: none;">
 									<li><a href="invoice-report.html">Useres</a></li>
                                     <li><a href="invoice-report.html">Role</a></li>
-                                    <li><a href="invoice-report.html">Permission</a></li>
+                                    <li><a href="{{ route('permission.index') }}">Permission</a></li>
 								</ul>
 							</li>
                             <!--Admin Options-->

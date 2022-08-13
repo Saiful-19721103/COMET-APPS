@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
+use App\Http\Controllers\Admin\PermissionController;
 
 //Dashboard Load(View Route)
 //Route::get('/', function(){
@@ -32,6 +33,9 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/dashboard', [AdminPageController::class, 'showDashboard'])->name('admin.dashboard');
     //Logout Controller
     Route::get('/admin-logout', [ AdminAuthController::class, 'logout'])->name('admin.logout');
+
+    //Permission Route
+    Route::resource('/permission', PermissionController::class);
 });
 
 
