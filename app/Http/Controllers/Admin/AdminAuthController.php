@@ -38,5 +38,15 @@ class AdminAuthController extends Controller
         }else{
             return redirect()->route('admin.login.page')->with ('warning', 'Email or password not match');
         }
+
     }
+        /**
+         * Admin LogOut
+         */
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.login.page');
+    }
+
 }

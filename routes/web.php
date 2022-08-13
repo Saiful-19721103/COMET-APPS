@@ -30,6 +30,8 @@ Route::group(['middleware' => 'admin.redirect'], function(){
 //Group Route
 Route::group(['middleware' => 'admin'], function(){
     Route::get('/dashboard', [AdminPageController::class, 'showDashboard'])->name('admin.dashboard');
+    //Logout Controller
+    Route::get('/admin-logout', [ AdminAuthController::class, 'logout'])->name('admin.logout');
 });
 
 
