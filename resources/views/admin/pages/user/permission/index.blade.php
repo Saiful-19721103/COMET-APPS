@@ -23,7 +23,7 @@
 											<tbody>
                                                 @forelse ($all_permission as $per)
 												<tr>
-													<td>1</td>
+													<td>{{$loop-> index + 1 }}</td>
 													<td>{{ $per->name }}</td>
                                                     <td>{{ $per->slug }}</td>
                                                     <td>{{ $per->created_at }}</td>
@@ -53,10 +53,12 @@
 									<h4 class="card-title">Add New Permission</h4>
 								</div>
 								<div class="card-body">
-									<form action="#">
+                                    <!--Form-->
+									<form action="{{route('permission.store')}}" method="POST">
+                                        @csrf
 										<div class="form-group">
 											<label>Name</label>
-											<input type="text" class="form-control">
+											<input name="name" type="text" class="form-control">
 										</div>
 										<div class="text-right">
 											<button type="submit" class="btn btn-primary">Submit</button>

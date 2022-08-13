@@ -37,7 +37,8 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //For Check
+        return $request -> all();
     }
 
     /**
