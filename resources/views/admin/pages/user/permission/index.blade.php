@@ -38,7 +38,7 @@
                                                         <a class="btn btn-sm btn-warning" href="{{ route('permission.edit', $per->id) }}"><i class="fa fa-edit"></i></a>
                                                         <!--<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>-- 
                                                         Delete button for Resource Controller should be in form tag-->
-                                                        <form action="{{route('permission.destroy', $per->id)}}" class="d-inline" method="POST">
+                                                        <form action="{{route('permission.destroy', $per->id)}}" class="d-inline delete-form" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash" ></i></button>
