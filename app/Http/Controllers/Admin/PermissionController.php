@@ -95,7 +95,12 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update_data = Permission::findOrFail($id);
+        $update_data ->update([
+            'name'      => $request->name,
+            'slug'      => Str::slug($request->name)
+        ]);
+        return back()->with('success', 'Permission update Success');
     }
 
     /**

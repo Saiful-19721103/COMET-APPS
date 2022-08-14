@@ -3,7 +3,7 @@
 @section ('main_section')
 <!-- Basic Table -->
 <div class="row">
-    
+
 	<div class="col-lg-8">
 		<div class="card">
 				<div class="card-header">
@@ -61,7 +61,7 @@
 	<!--Create Vertical Form -->
 	<div class="col-md-4">
 
-        <!--Form Type Create-->
+    <!--Form Type Create-->
             @if ($form_type =='create')
 		<div class="card">
 			<div class="card-header">
@@ -87,9 +87,9 @@
             </div>							
 		</div>
         @endif
-        <!--Form Type Create -->
+    <!--Form Type Create -->
 
-        <!--Form Type Edit -->
+        <!--Form Type Edit for check:
         @if ($form_type =='edit')
 		<div class="card">
 			<div class="card-header">
@@ -97,16 +97,16 @@
             </div>
 			<div class="card-body">
 
-                <!--Add New Permission Message-->
+                Add New Permission Message
                 @include('validate-main')
-                <!--Add New Permission Message-->
+                Add New Permission Message-->
 
-                <!--Form-->
+                <!--Form>
 				<form action="{{route('permission.store')}}" method="POST">
                     @csrf
 					<div class="form-group">
 						<label>Name</label>
-						<input name="name" type="text" class="form-control">
+						<input name="name" value="{{ $edit->name }}" type="text" class="form-control">
 					</div>
 					<div class="text-right">
 						<button type="submit" class="btn btn-primary">Submit</button>
@@ -115,7 +115,36 @@
 		    </div>
 		</div>
         @endif
-        <!--Form Type Edit -->
+        Form Type Edit -->
+
+        <!--Form Type Update -->
+        @if ($form_type =='edit')
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Edit Permission</h4>
+            </div>
+			<div class="card-body">
+
+                <!--Add New Permission Message-->
+                @include('validate')
+                <!--Add New Permission Message-->
+
+                <!--Form-->
+				<form action="{{route('permission.update', $edit-> id)}}" method="POST">
+                @csrf
+                @method('PUT')
+					<div class="form-group">
+						<label>Name</label>
+						<input name="name" type="text" class="form-control">
+					</div>
+					<div class="text-right">
+					    <button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+            </div>							
+		</div>
+        @endif
+    <!--Form Type Update -->
 
 	</div>       
 </div>
