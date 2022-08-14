@@ -33,7 +33,17 @@
 								<td>{{$loop-> index + 1 }}</td>
 								<td>{{ $per->name }}</td>
                                 <td>{{ $per->slug }}</td>
-								<td>{{ $per->permissions }}</td>
+								<!--<td>{{ $per->permissions }}</td>-- Json String-->
+								<!--json List define-->
+								<td>
+									<ul style="list-style:none">
+										@forelse(json_decode($per->permissions) as $item)
+										<li><i class="fa fa-angle-right" ></i>{{$item}}</li>
+										@empty
+										<li>No Permission found</li>
+										@endforelse
+									</ul>
+								</td>
                                 <td>{{ $per->created_at->diffForHumans() }}</td>
 								<td>
                                     <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
