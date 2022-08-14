@@ -1,20 +1,21 @@
 @extends('admin.layouts.app')
 
 @section ('main_section')
-    <!-- Basic Table -->
-                    <div class="row">
-						<div class="col-lg-8">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">All Permissions</h4>
-								</div>
-								<div class="card-body">
+<!-- Basic Table -->
+<div class="row">
+    
+	<div class="col-lg-8">
+		<div class="card">
+				<div class="card-header">
+					<h4 class="card-title">All Permissions</h4>
+				</div>
+		    <div class="card-body">
 
-                                <!--All Permission Message-->
-                                @include('validate-main')
-                                <!--All Permission Message-->
+                 <!--All Permission Message-->
+                    @include('validate-main')
+                <!--All Permission Message-->
 
-									<div class="table-responsive">
+				<div class="table-responsive">
 										<table class="table mb-0">
 											<thead>
 												<tr>
@@ -34,7 +35,7 @@
                                                     <td>{{ $per->created_at->diffForHumans() }}</td>
 													<td>
                                                         <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
-                                                        <a class="btn btn-sm btn-warning" href="#"><i class="fa fa-edit"></i></a>
+                                                        <a class="btn btn-sm btn-warning" href="{{ route('permission.edit', $per->id) }}"><i class="fa fa-edit"></i></a>
                                                         <!--<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>-- 
                                                         Delete button for Resource Controller should be in form tag-->
                                                         <form action="{{route('permission.destroy', $per->id)}}" class="d-inline" method="POST">
@@ -51,38 +52,73 @@
                                                 @endforelse
 											</tbody>
 										</table>
-									</div>
-								</div>
-							</div>
-					    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Basic Table -->
 					
-	<!-- Vertical Form -->
-						<div class="col-md-4">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">Add New Permission</h4>
-                                </div>
-								<div class="card-body">
+	<!--Create Vertical Form -->
+	<div class="col-md-4">
 
-                                <!--Add New Permission Message-->
-                                @include('validate')
-                                <!--Add New Permission Message-->
+        <!--Form Type Create-->
+            @if ($form_type =='create')
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Add New Permission</h4>
+            </div>
+			<div class="card-body">
 
-                                    <!--Form-->
-									<form action="{{route('permission.store')}}" method="POST">
-                                        @csrf
-										<div class="form-group">
-											<label>Name</label>
-											<input name="name" type="text" class="form-control">
-										</div>
-										<div class="text-right">
-											<button type="submit" class="btn btn-primary">Submit</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-                    </div>
-	<!-- Vertical Form -->
+                <!--Add New Permission Message-->
+                @include('validate')
+                <!--Add New Permission Message-->
+
+                <!--Form-->
+				<form action="{{route('permission.store')}}" method="POST">
+                @csrf
+					<div class="form-group">
+						<label>Name</label>
+						<input name="name" type="text" class="form-control">
+					</div>
+					<div class="text-right">
+					    <button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+            </div>							
+		</div>
+        @endif
+        <!--Form Type Create -->
+
+        <!--Form Type Edit -->
+        @if ($form_type =='edit')
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Edit Permission</h4>
+            </div>
+			<div class="card-body">
+
+                <!--Add New Permission Message-->
+                @include('validate-main')
+                <!--Add New Permission Message-->
+
+                <!--Form-->
+				<form action="{{route('permission.store')}}" method="POST">
+                    @csrf
+					<div class="form-group">
+						<label>Name</label>
+						<input name="name" type="text" class="form-control">
+					</div>
+					<div class="text-right">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+		    </div>
+		</div>
+        @endif
+        <!--Form Type Edit -->
+
+	</div>       
+</div>
+<!--Vertical Form -->
+    	
 @endsection

@@ -17,7 +17,11 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::latest()->get();
-        return view('admin.pages.user.permission.index', ['all_permission' => $permissions]);
+        return view('admin.pages.user.permission.index', [
+            'all_permission' => $permissions,
+            'form_type'      => 'create',
+        ]);
+        
     }
 
     /**
@@ -72,7 +76,14 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permissions = Permission::latest()->get();
+        $per = Permission::findOrFail($id);
+        return view('admin.pages.user.permission.index', [
+            'all_permission' => $permissions,
+            'form_type'      => 'edit',
+            'edit'           => $per,
+        ]);
+        
     }
 
     /**
@@ -98,7 +109,7 @@ class PermissionController extends Controller
         $delete = Permission::findOrFail($id);
         $delete->delete();
 
-        return back()->with('success-main', 'Permission Added Success');
+        return back()->with('success-main', 'Permission Deleted Success');
 
     }
 }
