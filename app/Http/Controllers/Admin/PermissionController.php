@@ -95,6 +95,10 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Permission::findOrFail($id);
+        $delete->delete();
+
+        return back()->with('success-main', 'Permission Added Success');
+
     }
 }

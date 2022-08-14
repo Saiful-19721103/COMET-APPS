@@ -9,6 +9,11 @@
 									<h4 class="card-title">All Permissions</h4>
 								</div>
 								<div class="card-body">
+
+                                <!--All Permission Message-->
+                                @include('validate-main')
+                                <!--All Permission Message-->
+
 									<div class="table-responsive">
 										<table class="table mb-0">
 											<thead>
@@ -26,11 +31,17 @@
 													<td>{{$loop-> index + 1 }}</td>
 													<td>{{ $per->name }}</td>
                                                     <td>{{ $per->slug }}</td>
-                                                    <td>{{ $per->created_at->diffForHumans }}</td>
+                                                    <td>{{ $per->created_at->diffForHumans() }}</td>
 													<td>
                                                         <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
                                                         <a class="btn btn-sm btn-warning" href="#"><i class="fa fa-edit"></i></a>
-                                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>
+                                                        <!--<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>-- 
+                                                        Delete button for Resource Controller should be in form tag-->
+                                                        <form action="{{route('permission.destroy', $per->id)}}" class="d-inline" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash" ></i></button>
+                                                        </form>
                                                     </td>
 												</tr>
                                                 @empty
@@ -54,7 +65,9 @@
                                 </div>
 								<div class="card-body">
 
+                                <!--Add New Permission Message-->
                                 @include('validate')
+                                <!--Add New Permission Message-->
 
                                     <!--Form-->
 									<form action="{{route('permission.store')}}" method="POST">
