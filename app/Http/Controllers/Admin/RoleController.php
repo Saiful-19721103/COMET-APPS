@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,7 +16,13 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view ('admin.pages.user.role.index');
+        $roles = Role::latest()->get();
+        $permissions = Permission::latest()->get();
+        return view ('admin.pages.user.role.index',[
+            'roles'         =>$roles,
+            'form_type'     =>'create',
+            'permissions'   =>$permissions
+        ]);
     }
 
     /**
@@ -35,7 +43,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
