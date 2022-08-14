@@ -58,7 +58,7 @@
 								<a href="#"><i class="fe fe-document"></i> <span> Admin Users</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="invoice-report.html">Useres</a></li>
-                                    <li><a href="invoice-report.html">Role</a></li>
+                                    <li><a href="{{ route('role.index') }}">Role</a></li>
                                     <li><a href="{{ route('permission.index') }}">Permission</a></li>
 								</ul>
 							</li>
