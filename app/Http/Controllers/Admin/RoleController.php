@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Permission;
 use App\Models\Role;
+use App\Models\Permission;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
@@ -43,7 +44,21 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        //return $request->all(); for Check
+
+        //Validation
+        $this->validate($request, [
+            'name'          => ['required']
+        ]);
+
+        //Store Role
+        Role::create([
+            'name'          => $request->name,
+            'slug'          => Str::slug($request->name),
+            'permissions'    => json_encode($request->permission)
+        ]);
+        //Return Back
+        return back()-> with('success', 'Role Added successful');
     }
 
     /**
