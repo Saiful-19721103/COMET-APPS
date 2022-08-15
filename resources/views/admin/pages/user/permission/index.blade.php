@@ -117,7 +117,7 @@
         @endif
         Form Type Edit -->
 
-        <!--Form Type Update -->
+<!--Form Type Update -->
         @if ($form_type =='edit')
 		<div class="card">
 			<div class="card-header d-flex justify-content-between">
@@ -145,7 +145,7 @@
             </div>							
 		</div>
         @endif
-    <!--Form Type Update -->
+<!--Form Type Update -->
 
 	</div>       
 </div>
