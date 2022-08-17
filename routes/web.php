@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'admin'], function(){
     Route::resource('/permission', PermissionController::class);
     //Roles Route
     Route::resource('/role', RoleController::class);
+    Route::resource('/admin-user', AdminController::class);
 });
 
 
