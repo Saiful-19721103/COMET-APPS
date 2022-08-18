@@ -7,7 +7,7 @@
     <div class="col-lg-8">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">All Admin Users</h4>
+                <h4 class="card-title">All Roles</h4>
             </div>
             <div class="card-body">
 
@@ -21,36 +21,38 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Role</th>
+                                <th>Slug</th>
+                                <th>Permissions</th>
                                 <th>created at</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($all_admin as $item)
+                            @forelse ($roles as $per)
                             <tr>
                                 <td>{{$loop-> index + 1 }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->role_id }}</td>
-                                <td>{{ $item->created_at->diffForHumans() }}</td>
+                                <td>{{ $per->name }}</td>
+                                <td>{{ $per->slug }}</td>
+                                <td>{{ $per->permissions }}</td>
+                                <td>{{ $per->created_at->diffForHumans() }}</td>
                                 <td>
                                     <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
-                                    <a class="btn btn-sm btn-warning"
-                                        href="{{ route('permission.edit', $item->id) }}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-sm btn-warning" href="{{ route('permission.edit', $per->id) }}">
+                                        <i class="fa fa-edit"></i></a>
                                     <!--<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>-- 
-                                Delete button for Resource Controller should be in form tag-->
-                                    <form action="{{route('permission.destroy', $item->id)}}"
+                                    Delete button for Resource Controller should be in form tag-->
+                                    <form action="{{route('permission.destroy', $per->id)}}"
                                         class="d-inline delete-form" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" type="submit"><i
-                                                class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-danger" type="submit">
+                                            <i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center text-danger">No Records Found</td>
+                                <td colspan="6" class="text-center text-danger">No Records Found</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -65,10 +67,10 @@
     <div class="col-md-4">
 
         <!--Form Type Create-->
-        @if ($form_type =='create')
+        @if ($form_type == 'create')
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Add New Admin User</h4>
+                <h4 class="card-title">Add New Role</h4>
             </div>
             <div class="card-body">
 
@@ -77,7 +79,7 @@
                 <!--Add New Permission Message-->
 
                 <!--Form-->
-                <form action="{{route('admin-user.store')}}" method="POST">
+                <form action="{{route('role.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label>Name</label>
@@ -85,42 +87,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label>email</label>
-                        <input name="email" type="text" class="form-control">
+                        <ul style="list-style:none; padding-left:0px;">
+                            @forelse($permissions as $item)
+                            <li>
+                                <label><input name="permission[]" type=" checkbox">{{$item->name}}</label>
+                            </li>
+                            @empty
+                            <li>
+                                <label>No Record founds</label>
+                            </li>
+                            @endforelse
+                        </ul>
                     </div>
-
-                    <div class="form-group">
-                        <label>User Name</label>
-                        <input name="username" type="text" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Cell</label>
-                        <input name="cell" type="text" class="form-control">
-                    </div>
-                    <!--Role Define Start-->
-                    <div class="form-group">
-                        <label>Role</label>
-                        <select name="role" id="" class="form-control">
-                            <option value="">--Select--</option>
-                            @foreach($roles as $role)
-                            <option value="{{$role->id}}">{{$role->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <!--Role Define End-->
-
-
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
-        @endif
-        <!--Form Type Create -->
-
-        <!--Form Type Update
+        !--Form Type Update -->
         @if ($form_type =='edit')
         <div class="card">
             <div class="card-header d-flex justify-content-between">
@@ -129,28 +114,27 @@
             </div>
             <div class="card-body">
 
-                Add New Permission Message
+                <!--Add New Permission Message-->
                 @include('validate')
-                Add New Permission Message-->
+                <!--Add New Permission Message-->
 
-        <!--Form
-        <form action="{{route('permission.update', $edit-> id)}}" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="form-group">
-                <label>Name</label>
-                <input name="name" type="text" class="form-control">
+                <!--Form-->
+                <form action="{{route('permission.update', $edit-> id)}}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input name="name" type="text" class="form-control">
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
-            <div class="text-right">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+        </div>
+        @endif
+        <!--Form Type Update -->
+
     </div>
 </div>
-@endif
-Form Type Update -->
-
-    </div>
-</div>
-<!--Vertical Form -->
 @endsection
