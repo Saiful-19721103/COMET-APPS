@@ -34,9 +34,11 @@
                                 <td>{{ $per->name }}</td>
                                 <td>{{ $per->slug }}</td>
                                 <td>
-                                    <ul>
+                                    <ul style="list-style:none">
                                         @forelse(json_encode($per->permissions) as $item)
-                                        <li>{{$item}}</li>
+                                        <li>
+                                            <i class="fa fa-angle-right"></i>{{$item}}
+                                        </li>
                                         @empty
                                         <li>No Permission Found</li>
                                         @endforelse
@@ -138,6 +140,7 @@
                 <form action="{{route('role.update', $edit-> id)}}" method="POST">
                     @csrf
                     @method('PUT')
+
                     <div class="form-group">
                         <label>Name</label>
                         <input name="name" value="{{$edit->name}}" type="text" class="form-control">
@@ -147,9 +150,9 @@
                         <ul style="list-style:none; padding-left:0px;">
                             @forelse( json_decode($permissions) as $item)
                             <li>
-                                <label><input @if(in_array($item->name, json_decode($edit->permissions)) ) checked
-                                    @endif
-                                    name="permission[]" value="{{$item->name}}" type="checkbox">{{$item->name}}</label>
+                                <label><input @if( in_array($item->name, json_decode($edit->permissions)) ) checked
+                                    @endif name="permission[]" value="{{$item->name}}"
+                                    type="checkbox">{{$item->name}}</label>
                             </li>
                             @empty
                             <li>
