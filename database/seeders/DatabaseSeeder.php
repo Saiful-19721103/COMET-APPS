@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
         Admin::create([
             'name'      => 'Provider',
             'email'     => 'provider@yahoo.com',
-            'cell'      =>  '01819210083',
-            'username'  =>  'provider',
+            'cell'      => '01819210083',
+            'username'  => 'provider',
             'password'  =>  Hash::make('asdfg'),
         ]);
     }

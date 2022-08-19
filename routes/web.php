@@ -43,5 +43,5 @@ Route::group(['middleware' => 'admin'], function(){
     Route::resource('/admin-user', AdminController::class);
     
     //For Admin User Update
-    Route::get('/admin-user-status-update', [AdminController::class, 'updateStatus'])->name('admin.status.update');
+    Route::get('/admin-user-status-update/{id}', [AdminController::class, 'updateStatus'])->name('admin.status.update');
 });

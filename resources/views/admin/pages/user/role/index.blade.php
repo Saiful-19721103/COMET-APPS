@@ -30,12 +30,12 @@
                         <tbody>
                             @forelse ($roles as $per)
                             <tr>
-                                <td>{{$loop-> index + 1 }}</td>
-                                <td>{{ $per->name }}</td>
-                                <td>{{ $per->slug }}</td>
+                                <td>{{$loop->index+1}}</td>
+                                <td>{{$per->name}}</td>
+                                <td>{{$per->slug}}</td>
                                 <td>
-                                    <ul style="list-style:none">
-                                        @forelse(json_encode($per->permissions) as $item)
+                                    <ul style="list-style:none; padding:0px;">
+                                        @forelse(json_decode($per->permissions) as $item)
                                         <li>
                                             <i class="fa fa-angle-right"></i>{{$item}}
                                         </li>
@@ -44,15 +44,14 @@
                                         @endforelse
                                     </ul>
                                 </td>
+                                <td>{{$per->created_at->diffForHumans() }}</td>
 
-                                <!--<td>{{ $per->permissions }}</td>--Shows As String--->
-                                <td>{{ $per->created_at->diffForHumans() }}</td>
                                 <td>
                                     <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
                                     <a class="btn btn-sm btn-warning" href="{{ route('role.edit', $per->id) }}"><i
                                             class="fa fa-edit"></i></a>
                                     <!--<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>-- 
-                                                        Delete button for Resource Controller should be in form tag-->
+                                    Delete button for Resource Controller should be in form tag-->
                                     <form action="{{route('role.destroy', $per->id)}}" class="d-inline delete-form"
                                         method="POST">
                                         @csrf
@@ -61,6 +60,7 @@
                                                 class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
+
                             </tr>
                             @empty
                             <tr>

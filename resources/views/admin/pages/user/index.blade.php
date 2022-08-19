@@ -46,16 +46,17 @@
                                 <td>
                                     @if($item->status)
                                     <span class="badge badge-success">Active User</span>
-                                    <a class="btn btn-sm btn-danger" href="{{ route('permission.edit', $item->id) }}"><i
+                                    <a class="btn btn-sm btn-danger"
+                                        href="{{ route('admin.status.update', $item->id) }}"><i
                                             class="fa fa-times"></i></a>
                                     @else
-                                    <span class="badge badge-success">Blocked User</span>
-                                    <a class="btn btn-sm btn-success" href="{{ route('permission.edit', $item->id) }}">
-                                        <i class="fa fa-checked"></i></a>
+                                    <span class="badge badge-danger">Blocked User</span>
+                                    <a class="btn btn-sm btn-success"
+                                        href="{{ route('admin.status.update', $item->id) }}">
+                                        <i class="fa fa-check"></i></a>
                                     @endif
                                 <td>
                                     <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
-
 
                                     <a class="btn btn-sm btn-warning"
                                         href="{{ route('permission.edit', $item->id) }}"><i class="fa fa-edit"></i></a>

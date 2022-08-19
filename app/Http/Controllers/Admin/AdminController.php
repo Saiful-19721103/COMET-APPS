@@ -52,7 +52,7 @@ class AdminController extends Controller
            'username'=>['required', 'unique:admins']
         ]);
 
-        //Passwor Generate
+        //Password Generate
         $pass_string = str_shuffle('azxcvbnmlkjhgfdsqwertyuiop1234567890!@#$%^&*()_+');
         $pass = substr($pass_string, 10, 10);
 
@@ -112,5 +112,28 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+        * Status Update
+    */
+
+    public function updateStatus($id)
+    {
+        //return $data= Admin::findOrfail($id);
+
+        $data= Admin::findOrfail($id);
+
+        if($data->status){
+            $data->update([
+                'status' == false
+            ]);           
+            
+        }else{
+            $data->update([
+                'status' == true
+            ]);
+        }
+        
+        return back()->with('success-main', 'Status Updated Successful');
     }
 }
