@@ -139,7 +139,7 @@
                     @method('PUT')
                     <div class="form-group">
                         <label>Name</label>
-                        <input name="name" type="text" class="form-control">
+                        <input name="name" value="{{$edit->name}}" type="text" class="form-control">
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -58,6 +58,7 @@ class AdminController extends Controller
 
         //Data Send
         Admin::create([
+            'role_id'=>$request->role,
             'name'=> $request->name,
             'email'=> $request->email,
             'cell'=> $request->cell,
@@ -124,13 +125,15 @@ class AdminController extends Controller
         $data= Admin::findOrfail($id);
 
         if($data->status){
+            
             $data->update([
-                'status' == false
+                'status' => false
             ]);           
             
         }else{
+            
             $data->update([
-                'status' == true
+                'status' => true
             ]);
         }
         

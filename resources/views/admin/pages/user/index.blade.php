@@ -46,13 +46,11 @@
                                 <td>
                                     @if($item->status)
                                     <span class="badge badge-success">Active User</span>
-                                    <a class="btn btn-sm btn-danger"
-                                        href="{{ route('admin.status.update', $item->id) }}"><i
+                                    <a class="text-danger-" href="{{ route('admin.status.update', $item->id) }}"><i
                                             class="fa fa-times"></i></a>
                                     @else
                                     <span class="badge badge-danger">Blocked User</span>
-                                    <a class="btn btn-sm btn-success"
-                                        href="{{ route('admin.status.update', $item->id) }}">
+                                    <a class="text-danger" href="{{ route('admin.status.update', $item->id) }}">
                                         <i class="fa fa-check"></i></a>
                                     @endif
                                 <td>
