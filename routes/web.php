@@ -44,4 +44,8 @@ Route::group(['middleware' => 'admin'], function(){
     
     //For Admin User Update
     Route::get('/admin-user-status-update/{id}', [AdminController::class, 'updateStatus'])->name('admin.status.update');
+    //For Admin User [Trash] Update
+    Route::get('/admin-user-trash-update/{id}', [AdminController::class, 'updateTrash'])->name('admin.trash.update');
+    //For Admin User [Return from Trash] 
+    Route::get('/admin-trash', [AdminController::class, 'trashUsers'])->name('admin.trash');
 });   

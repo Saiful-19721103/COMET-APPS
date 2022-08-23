@@ -16,6 +16,6 @@ class Admin extends User
     //get user Role
     public function role()
     {
-        $this->belongsTo(Role::class, 'role_id', 'id'); 
+        return $this->belongsTo(Role::class, 'role_id', 'id'); 
     }
 }

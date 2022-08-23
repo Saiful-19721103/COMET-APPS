@@ -6,8 +6,9 @@
     <div class="col-lg-8">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <h4 class="card-title">All Admin Users</h4>
-                <a href="{{route('admin.trash')}}" class="text-danger">Trash Users<i class="fa fa-arrow-right"></i></a>
+                <h4 class="card-title">All Admin Trash Users</h4>
+                <a href="{{route('admin-user.index')}}" class="text-success">Published Users <i
+                        class="fa fa-arrow-right"></i></a>
             </div>
             <div class="card-body">
 
@@ -21,10 +22,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Role</th>
                                 <th>Photo</th>
-                                <th>Created At</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,7 +32,6 @@
                             <tr>
                                 <td>{{$loop-> index + 1 }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->role->name }}</td>
 
                                 <td>
                                     @if($item->photo == 'avatar.png')
@@ -42,37 +39,20 @@
                                         src="{{url('storage/admins/avatar.png')}}" alt="">
                                     @endif
                                 </td>
+
                                 <td>{{ $item->created_at->diffForHumans() }}</td>
+
                                 <td>
-                                    @if($item->status)
-                                    <span class="badge badge-success">Active User</span>
-                                    <a class="text-danger" href="{{ route('admin.status.update', $item->id) }}"><i
-                                            class="fa fa-times"></i></a>
-                                    @else
-                                    <span class="badge badge-danger">Blocked User</span>
-                                    <a class="text-danger" href="{{ route('admin.status.update', $item->id) }}">
-                                        <i class="fa fa-check"></i></a>
-                                    @endif
-                                </td>
-                                <td>
-                                    <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a>-->
-                                    <a class="btn btn-sm btn-warning"
-                                        href="{{ route('permission.edit', $item->id) }}"><i class="fa fa-edit"></i></a>
-                                    <!-- <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>
-                                    Delete button for Resource Controller should be in form tag
-                                    <form action="{{route('permission.destroy', $item->id)}}"
+                                    <!--Send Trash-->
+                                    <a href="{{ route('admin.trash.update', $item->id)}}"
+                                        Class="btn btn-sm btn-info">Restore User</a>
+
+                                    <form action="{{route('admin-user.destroy', $item->id)}}"
                                         class="d-inline delete-form" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" type="submit">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form> -->
-
-                                    <!--For Send Trash Delete Button(Up) not Required-->
-                                    <!--Send Trash-->
-                                    <a href="{{ route('admin.trash.update', $item->id)}}"
-                                        Class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <button class="btn btn-sm btn-danger" type="submit">Delete Permanently </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endif

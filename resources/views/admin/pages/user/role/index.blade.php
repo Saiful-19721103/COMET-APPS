@@ -24,6 +24,7 @@
                                 <th>Slug</th>
                                 <th>Permissions</th>
                                 <th>Created at</th>
+                                <th>Users</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -44,7 +45,17 @@
                                 </td>
                                 <td>{{ $per->created_at->diffForHumans() }}</td>
                                 <td>
-                                    <!-- <a class="btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
+                                    <ul style="list-style:none; padding:0px;">
+                                        @forelse(json_decode($per->users) as $role_user)
+                                        <li>
+                                            <i class="fa fa-check"></i>{{$role_user->name}}
+                                        </li>
+                                        @empty
+                                        @endforelse
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a class=" btn btn-sm btn-info" href="#"><i class="fa fa-eye"></i></a> -->
                                     <a class="btn btn-sm btn-warning" href="{{ route('role.edit', $per->id) }}"><i
                                             class="fa fa-edit"></i></a>
                                     <!--<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i></a>-- 
@@ -60,7 +71,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6" class="text-center text-danger">No Records Found</td>
+                                <td colspan="7" class="text-center text-danger">No Records Found</td>
                             </tr>
                             @endforelse
                         </tbody>

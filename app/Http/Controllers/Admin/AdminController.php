@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -16,14 +17,30 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $all_admin = Admin::latest()->get();
-        $roles = Admin::latest()->get();
+        $all_admin = Admin::latest()->where('trash', false)->get();
+        $roles = Role::latest()->get();
         return view('admin.pages.user.index',[
             'all_admin' =>$all_admin,
             'form_type' =>'create',
             'roles'     =>$roles
         ]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function trashUsers()
+    {
+        $all_admin = Admin::latest()->where('trash', true)->get();
+        return view('admin.pages.user.trash',[
+            'all_admin' =>$all_admin,
+            'form_type' =>'trash',
+        ]);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -58,12 +75,12 @@ class AdminController extends Controller
 
         //Data Send
         Admin::create([
-            'role_id'=>$request->role,
-            'name'=> $request->name,
-            'email'=> $request->email,
-            'cell'=> $request->cell,
-            'username'=> $request->username,
-            'password'=> Hash::make($pass),
+            'role_id'       =>$request->role,
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'cell'          => $request->cell,
+            'username'      => $request->username,
+            'password'      => Hash::make($pass),
 
         ]);
 
@@ -112,7 +129,11 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete_data = Admin::findOrFail($id);
+
+        $delete_data->delete();
+        return back()->with('success-main', 'Admin User Deleted Successful');
+
     }
     /**
         * Status Update
@@ -138,5 +159,28 @@ class AdminController extends Controller
         }
         
         return back()->with('success-main', 'Status Updated Successful');
+    }
+    /**
+     * Trash Update
+     */
+    public function updateTrash($id)
+    {
+
+        $data= Admin::findOrfail($id);
+
+        if($data->trash){
+            
+            $data->update([
+                'trash' => false
+            ]);           
+            
+        }else{
+            
+            $data->update([
+                'trash' => true
+            ]);
+        }
+        
+        return back()->with('success-main', 'Trashed Admin User Successful');
     }
 }
