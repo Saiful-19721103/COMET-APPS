@@ -34,7 +34,15 @@ class AdminAuthController extends Controller
         Auth::guard('admin')->attempt(['cell' => $request->auth , 'password' => $request->password]) || 
         Auth::guard('admin')->attempt(['username' => $request->auth , 'password' => $request->password]) )
         {
-            return redirect()->route('admin.dashboard');
+            //If User is Blocked Start//
+            if(Auth::guard('admin')->user()->status){
+                return redirect()->route('admin.dashboard');                
+            }else{
+                Auth::guard('admin')->logout();
+                return redirect()->route('admin.login')->with('danger', 'Your Account is blocked', 'Please contact with Admin');
+            }          
+            //If User is Blocked End//
+            
         }else{
             return redirect()->route('admin.login.page')->with ('warning', 'Email or password not match');
         }

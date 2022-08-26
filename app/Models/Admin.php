@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Admin extends User
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
     
     protected $guarded = [];
     

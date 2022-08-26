@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\AdminAccountInfoNotification;
+
 
 class AdminController extends Controller
 {
@@ -74,7 +76,7 @@ class AdminController extends Controller
         $pass = substr($pass_string, 10, 10);
 
         //Data Send
-        Admin::create([
+        $user = Admin::create([
             'role_id'       =>$request->role,
             'name'          => $request->name,
             'email'         => $request->email,
@@ -83,6 +85,8 @@ class AdminController extends Controller
             'password'      => Hash::make($pass),
 
         ]);
+
+        $user->notify( new AdminAccountInfoNotification ([$user['name'], $pass]) );
 
         return back()->with('success', 'Admin User Created !');
     }
