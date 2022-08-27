@@ -2,4 +2,4 @@
 
 
 @section('frontend-main')
-@emdsection
+@endsection
