@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/bundle.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/bundle.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Halant:300,400" rel="stylesheet" type="text/css">
@@ -52,8 +52,8 @@
             <!-- Logo container-->
             <div class="logo">
                 <a href="index-2.html">
-                    <img src="images/logo_light.png" alt="" class="logo-light">
-                    <img src="images/logo_dark.png" alt="" class="logo-dark">
+                    <img src="frontend/images/logo_light.png" alt="" class="logo-light">
+                    <img src="frontend/images/logo_dark.png" alt="" class="logo-dark">
                 </a>
             </div>
             <!-- End Logo container-->
@@ -79,7 +79,7 @@
                             <ul class="nav product-list">
                                 <li>
                                     <div class="product-thumbnail">
-                                        <img src="images/shop/2.jpg" alt="">
+                                        <img src="frontend/images/shop/2.jpg" alt="">
                                     </div>
                                     <div class="product-summary">
                                         <a href="#">Premium Suit Blazer</a><span>$199.99</span>
@@ -87,7 +87,7 @@
                                 </li>
                                 <li>
                                     <div class="product-thumbnail">
-                                        <img src="images/shop/5.jpg" alt="">
+                                        <img src="frontend/images/shop/5.jpg" alt="">
                                     </div>
                                     <div class="product-summary">
                                         <a href="#">Reiss Vara Tailored Blazer</a><span>$199.99</span>
@@ -525,7 +525,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-4 img-side img-left mb-0">
                     <div class="img-holder">
-                        <img src="images/bg/33.jpg" alt="" class="bg-img">
+                        <img src="frontend/images/bg/33.jpg" alt="" class="bg-img">
                         <div class="centrize">
                             <div class="v-center">
                                 <div class="title txt-xs-center">
@@ -594,7 +594,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-4 img-side img-right">
                     <div class="img-holder">
-                        <img src="images/bg/10.jpg" alt="" class="bg-img">
+                        <img src="frontend/images/bg/10.jpg" alt="" class="bg-img">
                     </div>
                 </div>
                 <!-- end of side background image-->
@@ -673,7 +673,7 @@
                 <div class="work-item branding video">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/1.jpg" alt="">
+                            <img src="frontend/images/portfolio/1.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -688,7 +688,7 @@
                 <div class="work-item graphic printing">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/7.jpg" alt="">
+                            <img src="frontend/images/portfolio/7.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -703,7 +703,7 @@
                 <div class="work-item printing branding">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/6.jpg" alt="">
+                            <img src="frontend/images/portfolio/6.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -718,7 +718,7 @@
                 <div class="work-item video graphic">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/9.jpg" alt="">
+                            <img src="frontend/images/portfolio/9.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -733,7 +733,7 @@
                 <div class="work-item branding graphic">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/11.jpg" alt="">
+                            <img src="frontend/images/portfolio/11.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -748,7 +748,7 @@
                 <div class="work-item printing graphic">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/10.jpg" alt="">
+                            <img src="frontend/images/portfolio/10.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -763,7 +763,7 @@
                 <div class="work-item printing branding">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/8.jpg" alt="">
+                            <img src="frontend/images/portfolio/8.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -778,7 +778,7 @@
                 <div class="work-item graphic video">
                     <div class="work-detail">
                         <a href="portfolio-single-1.html">
-                            <img src="images/portfolio/3.jpg" alt="">
+                            <img src="frontend/images/portfolio/3.jpg" alt="">
                             <div class="work-info">
                                 <div class="centrize">
                                     <div class="v-center">
@@ -805,25 +805,25 @@
                 <div class="boxes clients">
                     <div class="row">
                         <div class="col-sm-4 col-xs-6 border-right border-bottom">
-                            <img src="images/clients/1.png" alt="" data-animated="true" class="client-image">
+                            <img src="frontend/images/clients/1.png" alt="" data-animated="true" class="client-image">
                         </div>
                         <div class="col-sm-4 col-xs-6 border-right border-bottom">
-                            <img src="images/clients/2.png" alt="" data-animated="true" data-delay="500"
+                            <img src="frontend/images/clients/2.png" alt="" data-animated="true" data-delay="500"
                                 class="client-image">
                         </div>
                         <div class="col-sm-4 col-xs-6 border-bottom">
-                            <img src="images/clients/3.png" alt="" data-animated="true" data-delay="1000"
+                            <img src="frontend/images/clients/3.png" alt="" data-animated="true" data-delay="1000"
                                 class="client-image">
                         </div>
                         <div class="col-sm-4 col-xs-6 border-right">
-                            <img src="images/clients/4.png" alt="" data-animated="true" class="client-image">
+                            <img src="frontend/images/clients/4.png" alt="" data-animated="true" class="client-image">
                         </div>
                         <div class="col-sm-4 col-xs-6 border-right">
-                            <img src="images/clients/5.png" alt="" data-animated="true" data-delay="500"
+                            <img src="frontend/images/clients/5.png" alt="" data-animated="true" data-delay="500"
                                 class="client-image">
                         </div>
                         <div class="col-sm-4 col-xs-6">
-                            <img src="images/clients/6.png" alt="" data-animated="true" data-delay="1000"
+                            <img src="frontend/images/clients/6.png" alt="" data-animated="true" data-delay="1000"
                                 class="client-image">
                         </div>
                     </div>
@@ -834,7 +834,7 @@
         </div>
     </section>
     <section class="parallax">
-        <div data-parallax="scroll" data-image-src="images/bg/7.jpg" class="parallax-bg"></div>
+        <div data-parallax="scroll" data-image-src="frontend/images/bg/7.jpg" class="parallax-bg"></div>
         <div class="parallax-overlay pb-50 pt-50">
             <div class="container">
                 <div class="title center">
@@ -1054,10 +1054,10 @@
         <!-- end of container-->
     </footer>
     <!-- end of footer-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bundle.js"></script>
+    <script type="text/javascript" src="{{asset('frontend/js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('frontend/js/bundle.js')}}"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="{{asset('frontend/js/main.js')}}"></script>
 </body>
 
 </html>

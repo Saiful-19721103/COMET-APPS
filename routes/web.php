@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\FrontendPageController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\PermissionController;
+
+/**
+ * Backend Route start
+ */
 
 //Dashboard Load(View Route)
 //Route::get('/', function(){
@@ -48,4 +53,13 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/admin-user-trash-update/{id}', [AdminController::class, 'updateTrash'])->name('admin.trash.update');
     //For Admin User [Return from Trash] 
     Route::get('/admin-trash', [AdminController::class, 'trashUsers'])->name('admin.trash');
-});   
+});
+/**
+ * Backend Route Ends
+ */
+
+
+/**
+ * Frontend Routes
+*/
+Route::get('/', [FrontendPageController::class, 'showHomePage'])->name('home.page');
