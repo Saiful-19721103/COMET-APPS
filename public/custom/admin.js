@@ -1,18 +1,17 @@
-(function($){
-    $(document).ready(function(){
-
+(function ($) {
+    $(document).ready(function () {
         //Delete btn alert
-        $('.delete-form').submit(function(e){ 
+        $(".delete-form").submit(function (e) {
+            let conf = confirm("Are You Sure?");
 
-            let conf = confirm('Are You Sure?');
-
-            if(conf){
+            if (conf) {
                 return true;
-            }else{
-                e.preventDefault();            
+            } else {
+                e.preventDefault();
             }
-
         });
     });
 
-})(jQuery)
+    //Our Data Tables
+    $(".data-table-haq").DataTable();
+})(jQuery);

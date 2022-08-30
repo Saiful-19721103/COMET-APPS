@@ -24,6 +24,9 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
+    <!--For Data Table-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css"/>
+
 
     <!--[if lt IE 9]>
 			<script src="admin/assets/js/html5shiv.min.js"></script>
@@ -87,14 +90,15 @@
     <script src="{{asset('admin/assets/plugins/morris/morris.min.js')}}"></script>
     <script src="{{asset('admin/assets/js/chart.morris.js')}}"></script>
 
+    <!--For Data Table-->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
+
     <!-- Custom JS -->
     <script src="{{asset('admin/assets/js/script.js')}}"></script>
 
     <!--For Alert System-->
     <script src="{{asset('custom/admin.js')}}"></script>
-
+    
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:34 GMT -->
 
 </html>

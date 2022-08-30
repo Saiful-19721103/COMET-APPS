@@ -16,7 +16,7 @@
                 <!--All Permission Message-->
 
                 <div class="table-responsive">
-                    <table class="table mb-0">
+                    <table class="table mb-0 data-table-haq">
                         <thead>
                             <tr>
                                 <th>#</th>

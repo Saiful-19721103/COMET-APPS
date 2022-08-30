@@ -2,48 +2,69 @@
 
 
 @section('frontend-main')
-    <!-- Home section-->
-    <section id="home">
-        <!-- Video background-->
-        <div id="video-wrapper">
-            <video autoplay="true" loop="true" preload="auto">
-                <source src="video/video.mp4" type="video/mp4">
-                <source src="video/video.webm" type="video/webm">
-            </video>
-        </div>
-        <!-- end of video background-->
-        <!-- Home slider-->
-        <div id="home-slider" class="flexslider">
-            <ul class="slides">
-                <li>
-                    <div class="slide-wrap">
-                        <div class="slide-content bold-text">
-                            <div class="container">
-                                <h6>We are fun and young.</h6>
-                                <h1 class="upper smaller">We love design<span class="red-dot"></span></h1>
-                                <p><a href="#" class="btn btn-light-out">Read More</a><a href="#"
-                                        class="btn btn-color btn-full">Services</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slide-wrap">
-                        <div class="slide-content bold-text">
-                            <div class="container">
-                                <h6>Video - Animations - Media</h6>
-                                <h1 class="upper smaller">We make cool things<span class="red-dot"></span></h1>
-                                <p><a href="#" class="btn btn-color">Explore</a><a href="#"
-                                        class="btn btn-light-out">Join us</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- end of home slider-->
-    </section>
-    <!-- end of home section-->
+<!-- Home Section-->
+<section id="home">
+ <!-- Home Slider-->
+ <div id="home-slider" class="flexslider">
+  <ul class="slides">
+   <li>
+    <img src="frontend/images/bg/1.jpg" alt="">
+    <div class="slide-wrap">
+     <div class="slide-content">
+      <div class="container">
+       <h1>Digital Power<span class="red-dot"></span></h1>
+       <h6>We are a small design studio from San Francisco.</h6>
+       <p><a href="#" class="btn btn-light-out">Read More</a><a href="#" class="btn btn-color btn-full">Services</a>
+       </p>
+      </div>
+     </div>
+    </div>
+   </li>
+   <li>
+    <img src="frontend/images/bg/2.jpg" alt="">
+    <div class="slide-wrap">
+     <div class="slide-content">
+      <div class="container">
+       <h1>We Are Comet<span class="red-dot"></span></h1>
+       <h6>Experts in web design and development.</h6>
+       <p><a href="#" class="btn btn-color">Explore</a><a href="#" class="btn btn-light-out">Join us</a>
+       </p>
+      </div>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </div>
+ <!-- End Home Slider-->
+</section>
+<!-- End Home Section-->
+
+<!--About section-->
+@include('frontend.sections.title')
+<!--About section-->
+
+<!--Expertise section-->
+@include('frontend.sections.expertise')
+<!--Expertise section-->
+
+<!--Vision section-->
+@include('frontend.sections.vision')
+<!--Vision section-->
+
+<!--Portfolio section-->
+@include('frontend.sections.portfolio')
+<!--Portfolio section-->
+
+<!--Clients section-->
+@include('frontend.sections.clients')
+<!--Clients section-->
+
+<!--Testimonials section-->
+@include('frontend.sections.testimonials')
+<!--Testimonials section-->
+
+<!--Blog section-->
+@include('frontend.sections.blog')
+<!--Blog section-->
+
 @endsection

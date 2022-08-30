@@ -128,7 +128,7 @@
                             class="avatar-img rounded-circle">
                     </div>
                     <div class="user-text">
-                        <h6>{{Auth::guard('admin')->user()->name}}</h6>
+                       <h6>{{Auth::guard('admin')->user()->name}}</h6>
                         <p class="text-muted mb-0">{{Auth::guard('admin')->user()->role->name}}</p>
                     </div>
                 </div>
