@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\FrontendPageController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
@@ -63,3 +64,8 @@ Route::group(['middleware' => 'admin'], function(){
  * Frontend Routes
 */
 Route::get('/', [FrontendPageController::class, 'showHomePage'])->name('home.page');
+
+/**
+ *Slider Routes
+*/
+Route::resource('/slider',SliderController::class );
