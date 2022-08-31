@@ -4141,3 +4141,13 @@ table.table-inbox tbody tr.checked {
 		display: none;
 	}
 }
+
+//Button design
+
+.btn-opt-area {
+	margin:20px, 0px;
+}
+
+.btn-opt-area input {
+margin-bottom:10px;
+}

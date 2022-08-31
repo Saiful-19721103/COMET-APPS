@@ -45,7 +45,7 @@
   @if ($form_type =='create')
   <div class="card">
    <div class="card-header">
-    <h4 class="card-title">Add New User</h4>
+    <h4 class="card-title">Add New Slider</h4>
    </div>
    <div class="card-body">
 
@@ -57,23 +57,60 @@
     <form action="{{route('admin-user.store')}}" method="POST">
      @csrf
      <div class="form-group">
-      <label>Name</label>
-      <input name="name" type="text" class="form-control">
+      <label>Title</label>
+      <input name="title" type="text" class="form-control">
      </div>
-   </div>
 
-   <div class="text-right">
-    <button type="submit" class="btn btn-primary">Submit</button>
+     <div class="form-group">
+      <label>Sub Title</label>
+      <input name="subtitle" type="text" class="form-control">
+     </div>
+
+     <div class="form-group">
+      <label>Photo</label>
+      <br>
+      <br>
+      <img style="max-width:100%;" id="slider-photo-preview" src="" alt="">
+      <br>
+      <br>
+      <input style="display:none" ; name="photo" type="file" class="form-control" id="slider-photo">
+      <label for="slider-photo">
+       <img style="width:100px; cursor:pointer;"
+        src=" https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png" alt="">
+      </label>
+     </div>
+     <hr>
+     <div class="form-group slider-btn-opt">
+
+      <!-- <div class="btn-opt-area">
+       <span>Button #1</span>
+       <input type="text" class="form-control" placeholder="Button Title">
+       <input type="text" class="form-control" placeholder="Button Link">
+      </div>
+
+      <div class="btn-opt-area">
+       <span>Button #2</span>
+       <input type="text" class="form-control" placeholder="Button Title">
+       <input type="text" class="form-control" placeholder="Button Link">
+      </div> -->
+
+      <!--Button Design by JS-->
+      <a id="add-new-slider-button" class="btn btn-sm btn-info" href="">Add Slider Button</a>
+     </div>
+
+     <div class="text-right">
+      <button type="submit" class="btn btn-primary">Submit</button>
+     </div>
+
+    </form>
    </div>
-   </form>
   </div>
- </div>
- @endif
- <!--Form Type Create -->
+  @endif
+  <!--Form Type Create -->
 
 
- <!--Form Type Update -->
- <!--  @if ($form_type =='edit')
+  <!--Form Type Update -->
+  <!--  @if ($form_type =='edit')
  <div class="card">
   <div class="card-header d-flex justify-content-between">
    <h4 class="card-title">Edit Permission</h4>
@@ -99,9 +136,9 @@ Add New Permission Message
 </div>
 </div>
 @endif -->
- <!--Form Type Update -->
+  <!--Form Type Update -->
 
-</div>
+ </div>
 </div>
 <!--Vertical Form -->
 
