@@ -10,33 +10,62 @@
                 e.preventDefault();
             }
         });
-    });
 
-    //Our Data Tables
-    $(".data-table-haq").DataTable();
+        //Our Data Tables
+        $(".data-table-haq").DataTable();
 
-    //Slider Photo Management
-    $("#slider-photo").change(function (e) {
-        //alert();
-        //console.log(e.target.files);
+        //Slider Photo Management
+        $("#slider-photo").change(function (e) {
+            //alert();
+            //console.log(e.target.files);
 
-        const photo_url = URL.createObjectURL(e.target.files[0]);
-        //console.log(photo_url);
-        $("#slider-photo-preview").attr("src", photo_url);
-    });
+            const photo_url = URL.createObjectURL(e.target.files[0]);
+            //console.log(photo_url);
+            $("#slider-photo-preview").attr("src", photo_url);
+        });
 
-    // Add new Slider button
-    $("#add-new-slider-button").click(function (e) {
-        e.preventDefault(); //# tag remove from URL
-        //alert();
-        $('.slider-btn-opt').prepend(`
+        // Add new Slider button
 
-        <div class="btn-opt-area">
-            <span>Button #1</span>
-            <input type="text" class="form-control" placeholder="Button Title">
-            <input type="text" class="form-control" placeholder="Button Link">
+        let btn_no = 1;
+        $("#add-new-slider-button").click(function (e) {
+            e.preventDefault(); //# tag remove from URL
+            //alert();
+
+            /* Not More then Two Button
+         if (btn_no <= 2) {
+            $(".slider-btn-opt").append(`
+
+             <span>Button #${btn_no}</span>
+            <input type="text" class="form-control" name="btn_title[]" placeholder="Button Title">
+            <input type="text" class="form-control" name="btn_link[]" placeholder="Button Link">
         </div>
 
         `);
+            btn_no++;
+        } else {
+            alert(`You can't add more button`);
+        } */
+
+            // Add Remove button
+            $(".slider-btn-opt").append(`
+
+            <div class="btn-opt-area">
+                <span>Button #${btn_no}</span>
+                <span class="badge badge-danger remove-btn" style="margin-left:235px; cursor:pointer;">Remove</span> 
+                <input type="text" class="form-control" name="btn_title[]" placeholder="Button Title">
+                <input type="text" class="form-control" name="btn_link[]" placeholder="Button Link">
+            </div>
+
+            `);
+
+            btn_no++;
+        });
+
+        //Button(remove function)
+        $(document).on("click", ".remove-btn", function () {
+            //alert(); for check
+
+            $(this).closest(".btn-opt-area").remove();
+        });
     });
 })(jQuery);

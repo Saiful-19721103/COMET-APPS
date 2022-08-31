@@ -54,7 +54,7 @@
     <!--Add New Permission Message-->
 
     <!--Form-->
-    <form action="{{route('admin-user.store')}}" method="POST">
+    <form action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
      @csrf
      <div class="form-group">
       <label>Title</label>
