@@ -20,7 +20,6 @@
       <thead>
        <tr>
         <th>#</th>
-        <th>Name</th>
         <th>Title</th>
         <th>Photo</th>
         <th>Created At</th>
@@ -29,7 +28,36 @@
        </tr>
       </thead>
       <tbody>
+       @forelse($sliders as $item)
+       <tr>
+        <td>{{ $loop->index + 1 }}</td>
+        <td>{{ $item->title }}</td>
+        <td>
+         <img style="width:60px; height:60px; object-fit:cover;" src="{{ url('storage/sliders/' . $item -> photo )}}"
+          alt="">
+        </td>
+        <td>{{$item->created_at->diffForHumans()}}</td>
+        <td>
+         @if($item->status)
+         <span class="badge badge-success">Published</span>
+         <a class="text-danger" href="{{ route('admin.status.update', $item->id) }}"><i class="fa fa-times"></i></a>
+         @else
+         <span class="badge badge-danger">Un Published</span>
+         <a class="text-danger" href="{{ route('admin.status.update', $item->id) }}"><i class="fa fa-check"></i></a>
+         @endif
+        </td>
 
+        <td>
+         <a class="btn btn-sm btn-warning" href="{{ route('permission.edit', $item->id)}}">
+          <i class="fa fa-edit"></i></a>
+         <a href="{{ route('admin.trash.update', $item->id)}}" Class="btn btn-sm btn-danger">
+          <i class="fa fa-trash"></i></a>
+        </td>
+
+       </tr>
+       @empty
+
+       @endforelse
       </tbody>
      </table>
     </div>
@@ -39,7 +67,7 @@
  <!-- Basic Table -->
 
  <!--Create Vertical Form -->
- <div class="col-md-4">
+ <div class=" col-md-4">
 
   <!--Form Type Create-->
   @if ($form_type =='create')
@@ -58,12 +86,12 @@
      @csrf
      <div class="form-group">
       <label>Title</label>
-      <input name="title" type="text" class="form-control">
+      <input name="title" type="text" value="{{old('title')}}" class=" form-control">
      </div>
 
      <div class="form-group">
       <label>Sub Title</label>
-      <input name="subtitle" type="text" class="form-control">
+      <input name="subtitle" type="text" value="{{old('subtitle')}}" class="form-control">
      </div>
 
      <div class="form-group">
@@ -106,40 +134,7 @@
    </div>
   </div>
   @endif
-  <!--Form Type Create -->
-
-
-  <!--Form Type Update -->
-  <!--  @if ($form_type =='edit')
- <div class="card">
-  <div class="card-header d-flex justify-content-between">
-   <h4 class="card-title">Edit Permission</h4>
-   <a href="{{route('permission.index')}}">Back</a>
-  </div>
-  <div class="card-body">
-
-   Add New Permission Me
-    @include('validate')
-Add New Permission Message
- Form
- <form action="{{route('permission.update', $edit-> id)}}" method="POST">
-  @csrf
-  @method('PUT')
-  <div class="form-group">
-   <label>Name</label>
-   <input name="name" type="text" class="form-control">
-  </div>
-  <div class="text-right">
-   <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
- </form>
-</div>
-</div>
-@endif -->
-  <!--Form Type Update -->
 
  </div>
 </div>
-<!--Vertical Form -->
-
 @endsection

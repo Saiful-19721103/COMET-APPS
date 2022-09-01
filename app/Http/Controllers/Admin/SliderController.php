@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class SliderController extends Controller
 {
@@ -14,9 +16,11 @@ class SliderController extends Controller
      */
     public function index()
     {
-    return view ('admin.pages.slider.index', [
-        'form_type'=> 'create'
-    ]);
+        $sliders = Slider::latest()->get();
+        return view ('admin.pages.slider.index', [
+            'form_type' => 'create',
+            'sliders'   =>$sliders
+        ]);
     }
 
     /**
@@ -38,9 +42,37 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         
-        return $request->all(); //for check
+        //return $request->all(); for check
+
+        //Manage Data(Validation)
+        $this->validate($request, [
+            'title'         =>'required',
+            'subtitle'     =>'required',
+            'photo'         =>'required',            
+        ]);
+        //Slider image Manage
+        if ($request->hasFile('photo') ) {
+            
+            $img=$request->file('photo');
+            $file_name=md5(time().rand()) .'.'. $img->clientExtension();
+            
+            $image=Image::make($img->getRealPath());
+            $image->save(storage_path('app/public/sliders/' . $file_name) );
+            
+        }
+        
+        //Add New Slide
+        Slider::create([
+            'title'         =>$request->title,
+            'subtitle'      =>$request->subtitle,
+            'photo'         =>$file_name
+        ]);
+
+        return back()->with('success', 'Slide Added Successful');
     }
 
+
+    
     /**
      * Display the specified resource.
      *
