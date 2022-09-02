@@ -115,7 +115,13 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+     $slider = Slider::findOrFail($id);
+     $sliders = Slider::latest()->get();
+        return view ('admin.pages.slider.index', [
+            'form_type' => 'edit',
+            'sliders'   =>$sliders,
+            'slider'   =>$slider
+        ]);
     }
 
     /**
