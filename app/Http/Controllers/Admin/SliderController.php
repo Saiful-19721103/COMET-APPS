@@ -19,7 +19,7 @@ class SliderController extends Controller
         $sliders = Slider::latest()->get();
         return view ('admin.pages.slider.index', [
             'form_type' => 'create',
-            'sliders'   =>$sliders
+            'sliders'   =>  $sliders
         ]);
     }
 
@@ -55,14 +55,11 @@ class SliderController extends Controller
         
         //Button Management
         $buttons = [];
-        for( $i = 0; $i <count($request->btn_title); $i++){
-            
-            
-            
+        for( $i = 0; $i < count($request->btn_title); $i++){
             array_push($buttons, [
                 'btn_title' =>  $request->    btn_title[$i],
                 'btn_link'  =>  $request->    btn_link[$i],
-                'btn_type'  =>  $request->    btn_type[$i],
+                'btn_type'  =>  $request->    btn_type[$i]
             ] );
 
         }
