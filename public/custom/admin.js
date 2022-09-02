@@ -54,6 +54,13 @@
                 <span class="badge badge-danger remove-btn" style="margin-left:235px; cursor:pointer;">Remove</span> 
                 <input type="text" class="form-control" name="btn_title[]" placeholder="Button Title">
                 <input type="text" class="form-control" name="btn_link[]" placeholder="Button Link">
+
+                <select class="form-control" name="btn_type[]">
+                <option value="btn-light-out"> Default </option>
+                <option value="btn-color btn-full"> Red </option>
+                </select>
+                
+                <hr />
             </div>
 
             `);

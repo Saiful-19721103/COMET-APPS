@@ -20,7 +20,10 @@
       <div class="container">
        <h1>{{$slider->title}}<span class="red-dot"></span></h1>
        <h6>{{$slider->subtitle}}</h6>
-       <p><a href="#" class="btn btn-light-out">Read More</a><a href="#" class="btn btn-color btn-full">Services</a>
+       <p>
+        @foreach( json_decode ($slider->btns) as $btn)
+        <a href="{{$btn->btn_link}}" class="btn {{ $btn -> btn_type }}">{{$btn->btn_title}}</a>
+        @endforeach
        </p>
       </div>
      </div>
