@@ -163,6 +163,7 @@
      </div>
      <hr>
      <div class="form-group slider-btn-opt">
+
       <!--Button Show for Edit-->
       @foreach(json_decode($slider->btns) as $btn)
       <div class="btn-opt-area">
@@ -180,6 +181,7 @@
 
        <hr />
       </div>
+
       @endforeach
       <!--Button Design by JS-->
       <a id="add-new-slider-button" class="btn btn-sm btn-info" href="">Add Slider Button</a>
