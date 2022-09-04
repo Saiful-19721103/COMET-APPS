@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title')->ullablen();
             $table->string('subtitle')->nullable();
             $table->string('photo')->nullable();
-            $table->string('btns')->nullable();
+            $table->text('btns')->nullable();
             $table->boolean('status')->default(true);
             $table->boolean('trash')->default(false);
             $table->timestamps();

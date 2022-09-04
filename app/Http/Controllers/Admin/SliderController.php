@@ -49,10 +49,8 @@ class SliderController extends Controller
         $this->validate($request, [
             'title'         =>'required',
             'subtitle'     =>'required',
-            'photo'         =>'required|',            
-        ]);
-
-        
+            'photo'         =>'required|mimes:jpg,png,jpeg|max:5048',            
+        ]);        
         
         //Button Management
         $buttons = [];
@@ -62,13 +60,9 @@ class SliderController extends Controller
                 'btn_link'  =>  $request->    btn_link[$i],
                 'btn_type'  =>  $request->    btn_type[$i]
             ] );
-
         }
         
         //return $buttons; [for check]
-
-
-
         
         //Slider image Manage
         if ($request->hasFile('photo') ) {
@@ -76,12 +70,9 @@ class SliderController extends Controller
             $img=$request->file('photo');
             $file_name = md5( time().rand() ) .'.'. $img->clientExtension();
             
-           
             $image=Image::make($img->getRealPath() );
             
             $image->save(storage_path('app/public/sliders/' . $file_name ) );
-            
-            
         }
         
         //Add New Slide
@@ -89,9 +80,8 @@ class SliderController extends Controller
             'title'         =>$request->title,
             'subtitle'      =>$request->subtitle,
             'photo'         =>$file_name,
-            'btns'=>json_encode($buttons)
+            'btns'          =>json_encode($buttons)
         ]);
-
         return back()->with('success', 'Slide Added Successful');
     }
 
@@ -134,9 +124,34 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //return $request->all(); for check
+        //get slider
+        $slider = Slider::findOrFail($id);
+
+        //button MANAGEMENT
+        $buttons = [];
+        for( $i = 0; $i < count($request->btn_title); $i++){
+            
+            array_push($buttons, [
+                'btn_title' =>  $request->    btn_title[$i],
+                'btn_link'  =>  $request->    btn_link[$i],
+                'btn_type'  =>  $request->    btn_type[$i]
+            ] );
+        }
+
+        //UPDATED sLIDER
+        $slider->update([
+            'title'         =>$request->title,
+            'subtitle'      =>$request->subtitle,
+            //'photo'         =>$file_name,
+            'btns'          =>json_encode($buttons)
+        ]);
+        
+        return back()->with('success', 'Slide Updated Successful');
+        
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

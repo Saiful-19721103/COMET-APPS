@@ -134,9 +134,9 @@
     <!--Add New Permission Message-->
 
     <!--Form-->
-    <form action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
      @csrf
-
+     @method('PUT')
      <div class="form-group">
       <label>Title</label>
       <input name="title" type="text" value="{{$slider->title}}" class=" form-control">
@@ -151,7 +151,8 @@
       <label>Photo</label>
       <br>
       <br>
-      <img style="max-width:100%;" id="slider-photo-preview" src="{{ url ('storage/sliders/' . $item->photo) }}" alt="">
+      <img style="max-width:100%;" id="slider-photo-preview" src="{{ url ('storage/sliders/' . $slider->photo) }}"
+       alt="">
       <br>
       <br>
       <input style="display:none" ; name="photo" type="file" class="form-control" id="slider-photo">
