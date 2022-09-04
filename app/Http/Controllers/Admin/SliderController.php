@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 
+
 class SliderController extends Controller
 {
     /**
@@ -48,7 +49,7 @@ class SliderController extends Controller
         $this->validate($request, [
             'title'         =>'required',
             'subtitle'     =>'required',
-            'photo'         =>'required',            
+            'photo'         =>'required|',            
         ]);
 
         
@@ -73,10 +74,13 @@ class SliderController extends Controller
         if ($request->hasFile('photo') ) {
             
             $img=$request->file('photo');
-            $file_name=md5(time().rand()) .'.'. $img->clientExtension();
+            $file_name = md5( time().rand() ) .'.'. $img->clientExtension();
             
-            $image=Image::make($img->getRealPath());
-            $image->save(storage_path('app/public/sliders/' . $file_name) );
+           
+            $image=Image::make($img->getRealPath() );
+            
+            $image->save(storage_path('app/public/sliders/' . $file_name ) );
+            
             
         }
         
@@ -116,8 +120,8 @@ class SliderController extends Controller
      $sliders = Slider::latest()->get();
         return view ('admin.pages.slider.index', [
             'form_type' => 'edit',
-            'sliders'   =>$sliders,
-            'slider'   =>$slider
+            'sliders'   =>  $sliders,
+            'slider'    =>  $slider
         ]);
     }
 

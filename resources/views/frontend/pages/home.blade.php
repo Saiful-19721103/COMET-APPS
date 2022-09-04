@@ -14,7 +14,7 @@
 
    @foreach($sliders as $slider)
    <li>
-    <img src="{{url ('storage/sliders/' . $slider->photo)}}" alt="">
+    <img src="{{url('storage/sliders/' . $slider->photo)}}" alt="">
     <div class="slide-wrap">
      <div class="slide-content">
       <div class="container">

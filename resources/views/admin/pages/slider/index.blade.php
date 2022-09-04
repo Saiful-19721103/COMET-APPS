@@ -33,8 +33,7 @@
         <td>{{ $loop->index + 1 }}</td>
         <td>{{ $item->title }}</td>
         <td>
-         <!-- src="{{ url('storage/sliders/' . $item -> photo )}}" -->
-         <img src="{{ url('storage/app/public/sliders/'. $item->photo) }}" alt="">
+         <img style="width:60px; height:60px; object-fit:cover;" src="{{url('storage/sliders/' . $item->photo) }}">
         </td>
         <td>{{$item->created_at->diffForHumans()}}</td>
         <td>
@@ -53,7 +52,6 @@
          <a href="{{ route('admin.trash.update', $item->id)}}" Class="btn btn-sm btn-danger">
           <i class="fa fa-trash"></i></a>
         </td>
-
        </tr>
        @empty
 
@@ -101,7 +99,7 @@
       <img style="max-width:100%;" id="slider-photo-preview" src="" alt="">
       <br>
       <br>
-      <input style="display:none;" name="photo" type="file" class="form-control" id="slider-photo">
+      <input style=" display:none;" name="photo" type="file" class="form-control" id="slider-photo">
       <label for="slider-photo">
        <img style="width:100px; cursor:pointer;"
         src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png" alt="">
@@ -138,6 +136,7 @@
     <!--Form-->
     <form action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
      @csrf
+
      <div class="form-group">
       <label>Title</label>
       <input name="title" type="text" value="{{$slider->title}}" class=" form-control">
@@ -152,7 +151,7 @@
       <label>Photo</label>
       <br>
       <br>
-      <img style="max-width:100%;" id="slider-photo-preview" src="{{url('storage/sliders/' . $slider->photo)}}" alt="">
+      <img style="max-width:100%;" id="slider-photo-preview" src="{{ url ('storage/sliders/' . $item->photo) }}" alt="">
       <br>
       <br>
       <input style="display:none" ; name="photo" type="file" class="form-control" id="slider-photo">
@@ -174,7 +173,8 @@
 
        <select class="form-control" name="btn_type[]">
         <option @if($btn->btn_type==='btn-light-out') selected @endif value="btn-light-out"> Default </option>
-        <option @if($btn->btn_type==='btn-color btn-full') selected @endif value="btn-color btn-full"> Red </option>
+        <option @if($btn->btn_type==='btn-color btn-full') selected @endif value="btn-color btn-full"> Red
+        </option>
        </select>
 
        <hr />
