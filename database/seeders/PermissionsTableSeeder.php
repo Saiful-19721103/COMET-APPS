@@ -17,39 +17,6 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('permissions')->insert([
-            'name'      => 'User',
-            'slug'      => 'user',
-        ]);
-
-        DB::table('permissions')->insert([
-            'name'      => 'Post',
-            'slug'      => 'post',
-        ]);
-
-        DB::table('permissions')->insert([
-            'name'      => 'Portfolio',
-            'slug'      => 'portfolio',
-        ]);
-
-        DB::table('permissions')->insert([
-            'name'      => 'Settings',
-            'slug'      => 'settings',
-        ]);
-
-        DB::table('permissions')->insert([
-            'name'      => 'Our Client',
-            'slug'      => 'our-client',
-        ]);
-
-        DB::table('permissions')->insert([
-            'name'      => 'Testimonial',
-            'slug'      => 'testimonial',
-        ]);
-
-        DB::table('permissions')->insert([
-            'name'      => 'Slider',
-            'slug'      => 'slider',
-        ]);
+        //
     }
 }

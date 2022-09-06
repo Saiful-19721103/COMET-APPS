@@ -32,9 +32,9 @@
     <li class="submenu">
      <a href="#"><i class="fe fe-document"></i> <span>Portfolio</span> <span class="menu-arrow"></span></a>
      <ul style="display: none;">
-      <li><a href="invoice-report.html">---</a></li>
-      <li><a href="invoice-report.html">----</a></li>
-      <li><a href="invoice-report.html">----</a></li>
+      <li><a href="invoice-report.html">Portfolio</a></li>
+      <li><a href="invoice-report.html">Catagory</a></li>
+      <li><a href="invoice-report.html">Tags</a></li>
      </ul>
     </li>
     @endif
@@ -90,9 +90,9 @@
     <!--Theme Options-->
 
     <!-- Seetings-->
-    @if(in_array('Seetings', json_decode(Auth::guard('admin')->user()->role->permissions ) ) )
+    @if(in_array('Settings', json_decode(Auth::guard('admin')->user()->role->permissions ) ) )
     <li>
-     <a href="#"><i class="fe fe-home"></i> <span>Seetings</span></a>
+     <a href="#"><i class="fe fe-home"></i> <span>Settings</span></a>
     </li>
     @endif
     <!-- Seetings-->
