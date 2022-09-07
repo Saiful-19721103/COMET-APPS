@@ -151,7 +151,7 @@
       <label>Photo</label>
       <br>
       <br>
-      <img style="max-width:100%;" id="slider-photo-preview" src="{{ url ('storage/sliders/' . $slider->photo) }}"
+      <img style="max-width:100%;" id="slider-photo-preview" src="{{asset('storage/sliders/' . $slider->photo) }}"
        alt="">
       <br>
       <br>

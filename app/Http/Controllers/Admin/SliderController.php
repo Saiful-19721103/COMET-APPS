@@ -111,7 +111,7 @@ class SliderController extends Controller
         return view ('admin.pages.slider.index', [
             'form_type' => 'edit',
             'sliders'   =>  $sliders,
-            'slider'    =>  $slider
+            'slider'    =>  $slider  
         ]);
     }
 
@@ -139,7 +139,7 @@ class SliderController extends Controller
             ] );
         }
 
-        //UPDATED sLIDER
+        //UPDATED sLIDER 
         $slider->update([
             'title'         =>$request->title,
             'subtitle'      =>$request->subtitle,
