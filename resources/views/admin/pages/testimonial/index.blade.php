@@ -6,7 +6,7 @@
  <div class="col-lg-8">
   <div class="card">
    <div class="card-header d-flex justify-content-between">
-    <h4 class="card-title">All Sliders</h4>
+    <h4 class="card-title">All Testimonials</h4>
     <a href="{{route('admin.trash')}}" class="text-danger">Trash Users<i class="fa fa-arrow-right"></i></a>
    </div>
    <div class="card-body">
@@ -20,22 +20,21 @@
       <thead>
        <tr>
         <th>#</th>
-        <th>Title</th>
-        <th>Photo</th>
+        <th>Client</th>
+        <th>Company</th>
         <th>Created At</th>
         <th>Status</th>
         <th>Action</th>
        </tr>
       </thead>
       <tbody>
-       @forelse($sliders as $item)
+       @forelse($testimonials as $item )
        <tr>
-        <td>{{ $loop->index + 1 }}</td>
-        <td>{{ $item->title }}</td>
-        <td>
-         <img style="width:60px; height:60px; object-fit:cover;" src="{{url('storage/sliders/' . $item->photo) }}">
-        </td>
-        <td>{{$item->created_at->diffForHumans()}}</td>
+        <td>{{ $loop->index+1 }}</td>
+        <td>{{ $item->name }}</td>
+        <td>{{ $item->company }}</td>
+        <td>{{ $item->created_at->diffForHumans() }}</td>
+        <!--statu Badge-->
         <td>
          @if($item->status)
          <span class="badge badge-success">Published</span>
@@ -45,7 +44,7 @@
          <a class="text-danger" href="{{ route('admin.status.update', $item->id) }}"><i class="fa fa-check"></i></a>
          @endif
         </td>
-
+        <!--Action Button-->
         <td>
          <a class="btn btn-sm btn-warning" href="{{ route('slider.edit', $item->id)}}">
           <i class="fa fa-edit"></i></a>
@@ -54,7 +53,6 @@
         </td>
        </tr>
        @empty
-
        @endforelse
       </tbody>
      </table>
@@ -71,7 +69,7 @@
   @if ($form_type =='create')
   <div class="card">
    <div class="card-header">
-    <h4 class="card-title">Add New Slider</h4>
+    <h4 class="card-title">Add New Testimonial</h4>
    </div>
    <div class="card-body">
 
@@ -80,43 +78,28 @@
     <!--Add New Permission Message-->
 
     <!--Form-->
-    <form action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('testimonial.store')}}" method="POST">
      @csrf
-     <div class="form-group">
-      <label>Title</label>
-      <input name="title" value="{{old('title')}}" type="text" class=" form-control">
+     <div class=" form-group">
+      <label>Client Name</label>
+      <input name="name" value="{{old('name')}}" type="text" class=" form-control">
      </div>
 
      <div class="form-group">
-      <label>Sub Title</label>
-      <input name="subtitle" value="{{old('subtitle')}}" type="text" class="form-control">
+      <label>Company</label>
+      <input name="company" value="{{old('company')}}" type="text" class="form-control">
      </div>
 
      <div class="form-group">
-      <label>Photo</label>
-      <br>
-      <br>
-      <img style="max-width:100%;" id="slider-photo-preview" src="" alt="">
-      <br>
-      <br>
-      <input style=" display:none;" name="photo" type="file" class="form-control" id="slider-photo">
-      <label for="slider-photo">
-       <img style="width:100px; cursor:pointer;"
-        src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png" alt="">
-      </label>
-     </div>
-     <hr>
-     <div class="form-group slider-btn-opt">
-
-      <!--Button Design by JS-->
-      <a id="add-new-slider-button" class="btn btn-sm btn-info" href="">Add Slider Button</a>
+      <label>Testimonial</label>
+      <input name="testimonial" value="{{old('testimonial')}}" type="text" class="form-control">
      </div>
 
      <div class="text-right">
       <button type="submit" class="btn btn-primary">Submit</button>
      </div>
-
     </form>
+
    </div>
   </div>
   @endif

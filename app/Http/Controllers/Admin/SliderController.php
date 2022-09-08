@@ -124,7 +124,7 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //return $request->all(); for check
+        //return $request->all(); For Check
         //get slider
         $slider = Slider::findOrFail($id);
 
@@ -140,10 +140,9 @@ class SliderController extends Controller
         }
 
         //UPDATED sLIDER 
-        $slider->update([
+        $slider->  update([
             'title'         =>$request->title,
             'subtitle'      =>$request->subtitle,
-            //'photo'         =>$file_name,
             'btns'          =>json_encode($buttons)
         ]);
         

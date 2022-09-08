@@ -8,6 +8,7 @@ use App\Http\Controllers\FrontendPageController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /**
  * Backend Route start
@@ -69,3 +70,8 @@ Route::get('/', [FrontendPageController::class, 'showHomePage'])->name('home.pag
  *Slider Routes
 */
 Route::resource('/slider',SliderController::class );
+
+/**
+ *Slider Routes
+*/
+Route::resource('/testimonial', TestimonialController::class);
