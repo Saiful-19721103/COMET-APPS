@@ -23,7 +23,7 @@
 
     @if(in_array('Our Client', json_decode(Auth::guard('admin')->user()->role->permissions ) ) )
     <li>
-     <a href="#"><i class="fe fe-home"></i> <span>Clients</span></a>
+     <a href="{{ route('client.index') }}"><i class="fe fe-home"></i> <span>Clients</span></a>
     </li>
     @endif
 

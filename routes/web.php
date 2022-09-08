@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\FrontendPageController;
 use App\Http\Controllers\Admin\AdminAuthController;
@@ -75,3 +76,8 @@ Route::resource('/slider',SliderController::class );
  *Slider Routes
 */
 Route::resource('/testimonial', TestimonialController::class);
+
+/**
+ *Slider Routes
+*/
+Route::resource('/client', ClientController::class);
