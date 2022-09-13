@@ -17,4 +17,12 @@ class FrontendPageController extends Controller
             'sliders' => $sliders
         ]);
     }
+
+    /**
+     * Show Contact page
+     */
+    public function showContactPage()
+    {
+        return view('frontend.pages.contact');
+    }
 }

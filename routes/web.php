@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\FrontendPageController;
+use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -66,18 +67,13 @@ Route::group(['middleware' => 'admin'], function(){
  * Frontend Routes
 */
 Route::get('/', [FrontendPageController::class, 'showHomePage'])->name('home.page');
+Route::get('/contact', [FrontendPageController::class, 'showContactPage'])->name('contact.page');
+
 
 /**
  *Slider Routes
 */
 Route::resource('/slider',SliderController::class );
-
-/**
- *Slider Routes
-*/
 Route::resource('/testimonial', TestimonialController::class);
-
-/**
- *Slider Routes
-*/
 Route::resource('/client', ClientController::class);
+Route::resource('/counter', CounterController::class);

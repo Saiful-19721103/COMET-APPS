@@ -1,18 +1,18 @@
     <!-- Navigation Bar-->
     <header id="topnav">
-        <div class="container">
-            <!-- Logo container-->
-            <div class="logo">
-                <a href="{{route('home.page')}}">
-                    <img src="frontend/images/logo_light.png" alt="" class="logo-light">
-                    <img src="frontend/images/logo_dark.png" alt="" class="logo-dark">
-                </a>
-            </div>
-            <!-- End Logo container-->
-            <div class="menu-extras">
-                <!-- <div class="menu-item"> -->
-                    <!-- Shopping cart-->
-                    <!-- <div class="cart">
+     <div class="container">
+      <!-- Logo container-->
+      <div class="logo">
+       <a href="{{route('home.page')}}">
+        <img src="frontend/images/logo_light.png" alt="" class="logo-light">
+        <img src="frontend/images/logo_dark.png" alt="" class="logo-dark">
+       </a>
+      </div>
+      <!-- End Logo container-->
+      <div class="menu-extras">
+       <!-- <div class="menu-item"> -->
+       <!-- Shopping cart-->
+       <!-- <div class="cart">
                         <a href="#">
                             <i class="ti-bag"></i><span class="cart-number">2</span>
                         </a>
@@ -50,71 +50,70 @@
                             </p>
                         </div>
                     </div> -->
-                    <!-- End shopping cart-->
-                <!-- </div> -->
-                <div class="menu-item">
-                    <!-- Search Form-->
-                    <div class="search">
-                        <a href="#">
-                            <i class="ti-search"></i>
-                        </a>
-                        <div class="search-form">
-                            <form action="#" class="inline-form">
-                                <div class="input-group">
-                                    <input type="text" placeholder="Search" class="form-control"><span
-                                        class="input-group-btn"><button type="button" class="btn btn-color"><span><i
-                                                    class="ti-search"></i></span>
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- End search form-->
-                </div>
-                <div class="menu-item">
-                    <!-- Mobile menu toggle-->
-                    <a class="navbar-toggle">
-                        <div class="lines">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </a>
-                    <!-- End mobile menu toggle-->
-                </div>
-            </div>
-            <div id="navigation">
-                <!-- Navigation Menu-->
-                <ul class="navigation-menu">
-                    <!--Home -->
-                    <li>
-                        <a href="{{ route('home.page')}}">Home</a>
-                    </li>
-                    <!--Home -->
-
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Pricing</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Team</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Servces</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-                <!-- End navigation menu-->
-            </div>
+       <!-- End shopping cart-->
+       <!-- </div> -->
+       <div class="menu-item">
+        <!-- Search Form-->
+        <div class="search">
+         <a href="#">
+          <i class="ti-search"></i>
+         </a>
+         <div class="search-form">
+          <form action="#" class="inline-form">
+           <div class="input-group">
+            <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn"><button
+              type="button" class="btn btn-color"><span><i class="ti-search"></i></span>
+             </button>
+            </span>
+           </div>
+          </form>
+         </div>
         </div>
+        <!-- End search form-->
+       </div>
+       <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle">
+         <div class="lines">
+          <span></span>
+          <span></span>
+          <span></span>
+         </div>
+        </a>
+        <!-- End mobile menu toggle-->
+       </div>
+      </div>
+      <div id="navigation">
+       <!-- Navigation Menu-->
+       <ul class="navigation-menu">
+        <!--Home -->
+        <li>
+         <a href="{{ route('home.page')}}">Home</a>
+        </li>
+        <!--Home -->
+
+        <li>
+         <a href="#">About</a>
+        </li>
+
+        <li>
+         <a href="#">Pricing</a>
+        </li>
+
+        <li>
+         <a href="#">Team</a>
+        </li>
+
+        <li>
+         <a href="#">Servces</a>
+        </li>
+
+        <li>
+         <a href="{{ route('contact.page')}}">Contact</a>
+        </li>
+       </ul>
+       <!-- End navigation menu-->
+      </div>
+     </div>
     </header>
     <!-- End Navigation Bar-->

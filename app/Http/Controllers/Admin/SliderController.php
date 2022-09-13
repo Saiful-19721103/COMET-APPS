@@ -75,7 +75,7 @@ class SliderController extends Controller
             $image->save(storage_path('app/public/sliders/' . $file_name ) );
         }
         
-        //Add New Slide
+        //Add New Slide 
         Slider::create([
             'title'         =>$request->title,
             'subtitle'      =>$request->subtitle,

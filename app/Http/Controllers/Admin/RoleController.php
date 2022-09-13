@@ -22,7 +22,7 @@ class RoleController extends Controller
         return view ('admin.pages.user.role.index',[
             'roles'         =>$roles,
             'form_type'     =>'create',
-            'permissions'   =>$permissions
+            'permissions'   =>$permissions,
         ]);
     }
 
@@ -53,9 +53,9 @@ class RoleController extends Controller
 
         //Store Role
         Role::create([
-            'name'          => $request->name,
-            'slug'          => Str::slug($request->name),
-            'permissions'    => json_encode($request->permission)
+            'name'              => $request->name,
+            'slug'              => Str::slug($request->name),
+            'permissions'       => json_encode($request->permission)
         ]);
         //Return Back
         return back()-> with('success', 'Role Added successful');
@@ -87,7 +87,7 @@ class RoleController extends Controller
             'roles'         =>$roles,
             'form_type'     =>'edit',
             'permissions'   =>$permissions,
-            'edit'          => $edit
+            'edit'          => $edit,
         ]);
     }
 
