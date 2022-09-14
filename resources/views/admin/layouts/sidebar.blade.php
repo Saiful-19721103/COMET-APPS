@@ -43,7 +43,7 @@
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="invoice-report.html">Portfolio</a></li>
-                            <li><a href="invoice-report.html">Catagory</a></li>
+                            <li><a href="{{ route('portfolio-category.index') }}">Category</a></li>
                             <li><a href="invoice-report.html">Tags</a></li>
                         </ul>
                     </li>

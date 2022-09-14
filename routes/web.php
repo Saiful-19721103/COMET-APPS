@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\PortfolioCategoryController;
 
 /**
  * Backend Route start
@@ -50,12 +51,12 @@ Route::group(['middleware' => 'admin'], function(){
     //Roles Route
     Route::resource('/role', RoleController::class);
     Route::resource('/admin-user', AdminController::class);
-    
+
     //For Admin User Update
     Route::get('/admin-user-status-update/{id}', [AdminController::class, 'updateStatus'])->name('admin.status.update');
     //For Admin User [Trash] Update
     Route::get('/admin-user-trash-update/{id}', [AdminController::class, 'updateTrash'])->name('admin.trash.update');
-    //For Admin User [Return from Trash] 
+    //For Admin User [Return from Trash]
     Route::get('/admin-trash', [AdminController::class, 'trashUsers'])->name('admin.trash');
 });
 /**
@@ -77,3 +78,4 @@ Route::resource('/slider',SliderController::class );
 Route::resource('/testimonial', TestimonialController::class);
 Route::resource('/client', ClientController::class);
 Route::resource('/counter', CounterController::class);
+Route::resource('/portfolio-category', PortfolioCategoryController::class);
