@@ -83,27 +83,12 @@
                         <!--Add New Permission Message-->
 
                         <!--Form-->
-                        <form action="{{ route('counter.store') }}" method="POST">
+                        <form action="{{ route('portfolio-category.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>Title</label>
-                                <input name="title" value="{{ old('title') }}" type="text" class=" form-control">
+                                <label>Name</label>
+                                <input name="name" value="{{ old('name') }}" type="text" class=" form-control">
                             </div>
-
-                            <div class="form-group">
-                                <label>Count Value</label>
-                                <input name="count" value="{{ old('count') }}" type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Count Value</label> </br>
-                                <button class="btn btn-sm btn-info show-icon">Select a icon</button>
-                                <hr>
-                                <input name="icon" value="{{ old('count-icon') }}" type="text" class="form-control">
-                            </div>
-
-                            <hr>
-
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>

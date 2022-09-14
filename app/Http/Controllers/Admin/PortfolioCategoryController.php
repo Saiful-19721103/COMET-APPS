@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class PortfolioCategoryController extends Controller
 {
@@ -40,7 +41,21 @@ class PortfolioCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
+
+        //Validate
+        $this->validate($request, [
+            'name' => 'required|unique:categories',
+        ]);
+        // Store
+        Category::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        // Return
+        return back()->with('success', 'Category Added Success');
+
     }
 
     /**
