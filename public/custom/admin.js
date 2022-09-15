@@ -51,7 +51,7 @@
 
             <div class="btn-opt-area">
                 <span>Button #${btn_no}</span>
-                <span class="badge badge-danger remove-btn" style="margin-left:235px; cursor:pointer;">Remove</span> 
+                <span class="badge badge-danger remove-btn" style="margin-left:235px; cursor:pointer;">Remove</span>
                 <input type="text" class="form-control" name="btn_title[]" placeholder="Button Title">
                 <input type="text" class="form-control" name="btn_link[]" placeholder="Button Link">
 
@@ -59,7 +59,7 @@
                 <option value="btn-light-out"> Default </option>
                 <option value="btn-color btn-full"> Red </option>
                 </select>
-                
+
                 <hr />
             </div>
 
@@ -74,5 +74,28 @@
 
             $(this).closest(".btn-opt-area").remove();
         });
+
+        // icon select(Need to define)
+
+        // select icon (Need to define)
+
+        // Portfolio Gallery
+        $('#portfolio-gallery').change(function(e){
+            //alert();
+            const files = e.target.files;
+            let gallery_ui = '';
+
+            for (let i = 0; i < files.length; i++) {
+            const obj_url = URL.createObjectURL(files[i]);
+            gallery_ui += `<img src="${obj_url}">`;
+           }
+            $('.port-gall').html(gallery_ui);
+
+        });
+
+        //CK Editor
+        CKEDITOR.replace('portfolio-desc');
+
+
     });
 })(jQuery);
