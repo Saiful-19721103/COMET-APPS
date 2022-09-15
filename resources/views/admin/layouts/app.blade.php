@@ -91,6 +91,9 @@
     <!--For Data Table-->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
 
+    <!-- CK Editor Basic JS  by download-->
+    <script src="{{ asset('admin/assets/ckeditor/ckeditor.js') }}"></script>
+
     <!-- Custom JS -->
     <script src="{{ asset('admin/assets/js/script.js') }}"></script>
 
