@@ -125,8 +125,90 @@
                                 </label>
                             </div>
                             <div class="form-group">
+                                <label for="">Select Categories</label>
+                                <ul class="comet-list">
+                                    @foreach ($categories as $catg)
+                                        <li>
+                                            <label for=""><input name="cat[]" value="{{ $catg->id }}"
+                                                    type="checkbox">{{ $catg->name }}</label>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="form-group">
                                 <label for="">Project Description</label>
                                 <textarea id="portfolio-desc"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Project Steps</label>
+                                <!--Accordian Use Start-->
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card portfolio-step shadow-sm">
+                                        <div class="card-header" id="headingOne">
+                                            <h6 class="mb-0" style="cursor:pointer" data-toggle="collapse"
+                                                data-target="#collapseOne">
+                                                Step01
+                                            </h6>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse"data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="my-3">
+                                                    <label for="">Title</label>
+                                                    <input name="title[]" type="text" class="form-control">
+                                                </div>
+                                                <div class="my-3">
+                                                    <label for="">Description</label>
+                                                    <textarea name="desc[]" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card portfolio-step shadow-sm">
+                                        <div class="card-header" id="headingOne">
+                                            <h6 class="mb-0" style="cursor:pointer" data-toggle="collapse"
+                                                data-target="#collapseTwo">
+                                                Step02
+                                            </h6>
+                                        </div>
+
+                                        <div id="collapseTwo" class="collapse"data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="my-3">
+                                                    <label for="">Title</label>
+                                                    <input name="title[]" type="text" class="form-control">
+                                                </div>
+                                                <div class="my-3">
+                                                    <label for="">Description</label>
+                                                    <textarea name="desc[]" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card portfolio-step shadow-sm">
+                                        <div class="card-header" id="headingOne">
+                                            <h6 class="mb-0" style="cursor:pointer" data-toggle="collapse"
+                                                data-target="#collapseThree">
+                                                Step03
+                                            </h6>
+                                        </div>
+
+                                        <div id="collapseThree" class="collapse"data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="my-3">
+                                                    <label for="">Title</label>
+                                                    <input name="title[]" type="text" class="form-control">
+                                                </div>
+                                                <div class="my-3">
+                                                    <label for="">Title</label>
+                                                    <textarea name="desc[]" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Accordian Use End-->
                             </div>
                             <div class="form-group">
                                 <label>Client Name</label>

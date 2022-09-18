@@ -4163,4 +4163,15 @@ height: 150px;
 object-fit: cover;
 }
 
+.comet-list{
+margin:0px;
+padding:0px;
+list-style: none;
+}
 
+.comet-list li {
+margin-left: 10px;
+}
+.portfolio-step{
+margin:5px 0px;
+}

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class PortfolioController extends Controller
 {
@@ -16,9 +17,11 @@ class PortfolioController extends Controller
     public function index()
     {
         $portfolios = Portfolio::latest()->get();
+        $categories = Category::latest()->get();
         return view('admin.pages.portfolio.index', [
             'form_type' => 'create',
             'portfolios' => $portfolios,
+            'categories' => $categories,
         ]);
     }
 
