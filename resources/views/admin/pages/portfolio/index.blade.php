@@ -94,7 +94,7 @@
                             @csrf
                             <div class="form-group">
                                 <label>Title</label>
-                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
+                                <input name="name" value="{{ old('name') }}" type="text" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -137,7 +137,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Project Description</label>
-                                <textarea id="portfolio-desc"></textarea>
+                                <textarea name="pdesc" id="portfolio-desc"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -212,19 +212,19 @@
                             </div>
                             <div class="form-group">
                                 <label>Client Name</label>
-                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
+                                <input name="client" value="{{ old('client') }}" type="text" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Project Link</label>
-                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
+                                <input name="link" value="{{ old('link') }}" type="text" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Project Types</label>
-                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
+                                <input name="types" value="{{ old('types') }}" type="text" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Project Data</label>
-                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
+                                <input name="date" value="{{ old('date') }}" type="date" class="form-control">
                             </div>
 
                             <div class="text-right">

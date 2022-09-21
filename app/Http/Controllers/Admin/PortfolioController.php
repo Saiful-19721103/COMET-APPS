@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PortfolioController extends Controller
 {
@@ -43,9 +44,27 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
+        //validation
+        $this->validate($request, [
+            'name' => ['required'],
+            'cat' => ['required'],
+            'photo' => ['required'],
+        ]);
+        //image management
+        //Store
+        Portfoli::create([
+            'title' => $request->name,
+            'slug' => Str::slug($request->name),
+            'featured' => '',
+            'desc' => $request->pdesc,
+            'client' => $request->client,
+            'link' => $request->link,
+            'types' => $request->types,
+            'date' => $request->date,
+        ]);
+        //Return Back
     }
-
     /**
      * Display the specified resource.
      *

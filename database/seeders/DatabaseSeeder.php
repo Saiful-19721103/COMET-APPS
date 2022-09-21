@@ -32,5 +32,8 @@ class DatabaseSeeder extends Seeder
             'username'  => 'provider',
             'password'  =>  Hash::make('asdfg'),
         ]);
+        $this->call([
+            RolesTableSeeder::class
+        ]);
     }
 }
